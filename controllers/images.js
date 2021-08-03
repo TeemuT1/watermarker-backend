@@ -70,6 +70,7 @@ const watermarkImage = async (req, res) => {
             .toBuffer()
 
         //send back the watermarked image
+        res.set('Content-Type', 'image/jpeg')
         res.send(buffer)
     } catch(e) {
         res.status(500).send({error:'error when trying to watermark'})
